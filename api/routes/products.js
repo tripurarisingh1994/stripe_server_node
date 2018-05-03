@@ -13,7 +13,7 @@ router.post('/', (req, res, next)=> {
 
     res.status(200).json({
         message: 'hello',
-        token:token
+        token:token || ''
     })
 
     // var stripetoken = req.body.stripetoken
