@@ -16,8 +16,9 @@ router.post('/', (req, res, next)=> {
     //     message: 'Handling POST requests to /products'
     // })
 
-    let stripetoken = request.body.stripetoken
-    let amountpayable = request.body.amount
+    let stripetoken = req.body.stripetoken
+    let amountpayable = req.body.amount
+    
     let charge = stripe.charge.create({
         amount:amountpayable,
         currency:'usd',
