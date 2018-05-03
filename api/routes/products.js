@@ -11,11 +11,11 @@ router.get('/', (req, res, next)=> {
 router.post('/', (req, res, next)=> {
    
 
-    var stripetoken = req.params.stripetoken
-    var amountpayable = req.params.amount
+    // var stripetoken = req.params.stripetoken
+    // var amountpayable = req.params.amount
 
     res.status(200).json({
-        message: stripetoken
+        message: req
         
     })
     
