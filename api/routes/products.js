@@ -23,18 +23,14 @@ router.post('/', (req, res, next)=> {
 
     var charge = stripe.charge.create({
         amount:amountpayable,
-        currency:'usd',
+        currency:'gpb',
         description: 'Sample transaction',
         source:stripetoken
     }, function(err, charge) {
         if (err)
         console.log(err)
-        else {
-            res.status(200).json({
-            message: 'suceess',
-        }) 
-        }
-        // res.send({success: true})
+        else
+        res.send({success: true})
     })
     
 });
