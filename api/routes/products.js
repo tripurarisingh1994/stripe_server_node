@@ -11,6 +11,20 @@ router.post('/', (req, res, next)=> {
     res.status(200).json({
         message: 'Handling POST requests to /products'
     })
+
+    var stripetoken = request.body.stripetoken
+    var amountpayable = request.body.amount
+    var charge = stripe.charge.create({
+        amount:amountpayable,
+        currency:'usd',
+        description: 'Sample transaction',
+        source:stripetoken
+    }, function(err, charge) {
+        if (err)
+        console.log(err)
+        else
+        response.send({success: true})
+    })
 });
 
 module.exports = router;
