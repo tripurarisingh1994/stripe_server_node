@@ -10,28 +10,26 @@ router.get('/', (req, res, next)=> {
 
 router.post('/', (req, res, next)=> {
 
-    // let token = req.body;
-
     var stripetoken = req.body.stripetoken
     var amountpayable = req.body.amount
 
-    // res.status(200).json({
-    //     message: 'hello',
-    //     token:stripetoken,
-    //     amountpayable:amountpayable
-    // })
-
-    var charge = stripe.charge.create({
-        amount:amountpayable,
-        currency:'gpb',
-        description: 'Sample transaction',
-        source:stripetoken
-    }, function(err, charge) {
-        if (err)
-        console.log(err)
-        else
-        res.send({success: true})
+    res.status(200).json({
+        message: 'hello',
+        token:stripetoken,
+        amountpayable:amountpayable
     })
+
+    // var charge = stripe.charge.create({
+    //     amount:amountpayable,
+    //     currency:'gpb',
+    //     description: 'Sample transaction',
+    //     source:stripetoken
+    // }, function(err, charge) {
+    //     if (err)
+    //     console.log(err)
+    //     else
+    //     res.send({success: true})
+    // })
     
 });
 
