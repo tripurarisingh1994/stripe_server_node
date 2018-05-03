@@ -19,7 +19,7 @@ router.post('/', (req, res, next)=> {
         amountpayable:amountpayable
     })
 
-    var charge = stripe.charge.create({
+    var charge = stripe.charges.create({
         amount:amountpayable,
         currency:'gpb',
         description: 'Sample transaction',
