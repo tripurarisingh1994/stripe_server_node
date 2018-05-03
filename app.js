@@ -5,6 +5,7 @@ const cors = require('cors')
 
 const productRoutes = require('./api/routes/products');
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 
