@@ -12,24 +12,24 @@ const router  = express.Router();
 // });
 
 router.post('/', (req, res, next)=> {
-    // res.status(200).json({
-    //     message: 'Handling POST requests to /products'
-    // })
-
-    let stripetoken = req.body.stripetoken
-    let amountpayable = req.body.amount
-    
-    let charge = stripe.charge.create({
-        amount:amountpayable,
-        currency:'usd',
-        description: 'Sample transaction',
-        source:stripetoken
-    }, function(err, charge) {
-        if (err)
-        console.log(err)
-        else
-        response.send({success: true})
+    res.status(200).json({
+        message: 'Handling POST requests to /products'
     })
+
+    // let stripetoken = req.body.stripetoken
+    // let amountpayable = req.body.amount
+
+    // let charge = stripe.charge.create({
+    //     amount:amountpayable,
+    //     currency:'usd',
+    //     description: 'Sample transaction',
+    //     source:stripetoken
+    // }, function(err, charge) {
+    //     if (err)
+    //     console.log(err)
+    //     else
+    //     response.send({success: true})
+    // })
 });
 
 module.exports = router;
