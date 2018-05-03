@@ -1,4 +1,4 @@
-var stripe = require('stripe')('sk_live_eAwrqxCKbCLwKpUFxUh9g4EE')
+var stripe = require('stripe')('sk_test_KpYE4tTGNHCAicsQMSZeMJhP')
 const express = require('express');
 const router  = express.Router();
 
@@ -13,13 +13,7 @@ router.post('/', (req, res, next)=> {
     var stripetoken = req.body.stripetoken
     var amountpayable = req.body.amount
 
-    res.status(200).json({
-        message: 'hello',
-        token:stripetoken,
-        amountpayable:amountpayable
-    })
-
-    var charge = stripe.charges.create({
+    stripe.charges.create({
         amount:amountpayable,
         currency:'gpb',
         description: 'Sample transaction',
