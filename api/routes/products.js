@@ -10,7 +10,7 @@ router.get('/', (req, res, next)=> {
 
 router.post('/', (req, res, next)=> {
 
-    let token = req.params.token
+    let token = req.body;
     res.status(200).json({
         message: 'hello',
         token:token
