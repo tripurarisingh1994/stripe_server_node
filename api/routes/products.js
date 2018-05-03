@@ -9,23 +9,26 @@ router.get('/', (req, res, next)=> {
 });
 
 router.post('/', (req, res, next)=> {
+    const token = req.params.token
+
     res.status(200).json({
-        message: req
+        message: 'hello',
+        token:token
     })
 
-    var stripetoken = req.body.stripetoken
-    var amountpayable = req.body.amount
-    var charge = stripe.charge.create({
-        amount:amountpayable,
-        currency:'usd',
-        description: 'Sample transaction',
-        source:stripetoken
-    }, function(err, charge) {
-        if (err)
-        console.log(err)
-        else
-        response.send({success: true})
-    })
+    // var stripetoken = req.body.stripetoken
+    // var amountpayable = req.body.amount
+    // var charge = stripe.charge.create({
+    //     amount:amountpayable,
+    //     currency:'usd',
+    //     description: 'Sample transaction',
+    //     source:stripetoken
+    // }, function(err, charge) {
+    //     if (err)
+    //     console.log(err)
+    //     else
+    //     response.send({success: true})
+    // })
     
 });
 
