@@ -10,14 +10,14 @@ router.get('/', (req, res, next)=> {
 
 router.post('/', (req, res, next)=> {
 
-     var stripetoken = req.params.stripetoken
-    var amountpayable = req.params.amount
+     var stripetoken = req.body;
+    // var amountpayable = req.params.amount
 
     // res.send({token: stripetoken, amount: amountpayable})
 
     res.status(200).json( {
         token:stripetoken,
-        amount:amountpayable
+        // amount:amountpayable
     })
     // stripe.charges.create({
     //     amount:amountpayable,
