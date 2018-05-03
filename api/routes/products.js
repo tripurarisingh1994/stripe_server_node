@@ -15,7 +15,7 @@ router.post('/', (req, res, next)=> {
 
     stripe.charges.create({
         amount:amountpayable,
-        currency:'gpb',
+        currency:'usd',
         description: 'Sample transaction',
         source:stripetoken
     }, function(err, charge) {
