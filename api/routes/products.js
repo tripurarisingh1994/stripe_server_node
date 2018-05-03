@@ -9,23 +9,28 @@ router.get('/', (req, res, next)=> {
 });
 
 router.post('/', (req, res, next)=> {
-    res.status(200).json({
-        message: 'Handling POST requests to /products'
-    })
+   
 
-    var stripetoken = req.body.stripetoken
-    var amountpayable = req.body.amount
-    var charge = stripe.charge.create({
-        amount:amountpayable,
-        currency:'usd',
-        description: 'Sample transaction',
-        source:stripetoken
-    }, function(err, charge) {
-        if (err)
-        console.log(err)
-        else
-        response.send({success: true})
+    var stripetoken = req.params.stripetoken
+    var amountpayable = req.params.amount
+
+    res.status(200).json({
+        message: stripetoken
+        
     })
+    
+
+    // var charge = stripe.charge.create({
+    //     amount:amountpayable,
+    //     currency:'usd',
+    //     description: 'Sample transaction',
+    //     source:stripetoken
+    // }, function(err, charge) {
+    //     if (err)
+    //     console.log(err)
+    //     else
+    //     response.send({success: true})
+    // })
 });
 
 module.exports = router;
