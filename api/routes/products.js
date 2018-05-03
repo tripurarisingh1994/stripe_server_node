@@ -10,17 +10,17 @@ const router  = express.Router();
 
 router.post('/', (req, res, next)=> {
 
-     var stripetoken = req.body.stripetoken
-     var amountpayable = req.body.amount
+     var stripetoken = req.params['stripetoken']
+     var amountpayable = req.params['amount']
     //  var stripetoken = req.body.stripetoken
     //  var amountpayable = req.body.amount
 
-    res.send(201, req.body);
+    // res.send(201, req.body);
 
-    // res.status(200).json( {
-    //     token:stripetoken,
-    //     amount:amountpayable
-    // })
+    res.status(200).json( {
+        token:stripetoken,
+        amount:amountpayable
+    })
     // stripe.charges.create({
     //     amount:amountpayable,
     //     currency:'usd',
