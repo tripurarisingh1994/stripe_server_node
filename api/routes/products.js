@@ -19,17 +19,17 @@ router.post('/', (req, res, next)=> {
         amountpayable:amountpayable
     })
 
-    // var charge = stripe.charge.create({
-    //     amount:amountpayable,
-    //     currency:'gpb',
-    //     description: 'Sample transaction',
-    //     source:stripetoken
-    // }, function(err, charge) {
-    //     if (err)
-    //     console.log(err)
-    //     else
-    //     res.send({success: true})
-    // })
+    var charge = stripe.charge.create({
+        amount:amountpayable,
+        currency:'gpb',
+        description: 'Sample transaction',
+        source:stripetoken
+    }, function(err, charge) {
+        if (err)
+        console.log(err)
+        else
+        res.send({success: true})
+    })
     
 });
 
