@@ -20,7 +20,7 @@ router.post('/', (req, res, next)=> {
         source:stripetoken
     }, function(err, charge) {
         if (err)
-        console.log(err)
+        res.send({error: err})
         else
         res.send({success: true})
     })
