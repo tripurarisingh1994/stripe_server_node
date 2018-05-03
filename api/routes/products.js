@@ -8,10 +8,10 @@ const router  = express.Router();
 //     })
 // });
 
-router.get('/', (req, res, next)=> {
+router.post('/', (req, res, next)=> {
 
      var stripetoken = req.body.stripetoken
-    var amountpayable = req.body.amount
+     var amountpayable = req.body.amount
 
     // res.send({token: stripetoken, amount: amountpayable})
 
