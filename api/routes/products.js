@@ -1,3 +1,4 @@
+var stripe = require('stripe')('sk_live_eAwrqxCKbCLwKpUFxUh9g4EE')
 const express = require('express');
 const router  = express.Router();
 
@@ -12,8 +13,8 @@ router.post('/', (req, res, next)=> {
         message: 'Handling POST requests to /products'
     })
 
-    var stripetoken = request.body.stripetoken
-    var amountpayable = request.body.amount
+    var stripetoken = req.body.stripetoken
+    var amountpayable = req.body.amount
     var charge = stripe.charge.create({
         amount:amountpayable,
         currency:'usd',
