@@ -13,6 +13,7 @@
   "author": "Tripurari Singh",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "stripe": "^5.8.0"
   }
 }
