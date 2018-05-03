@@ -29,8 +29,12 @@ router.post('/', (req, res, next)=> {
     }, function(err, charge) {
         if (err)
         console.log(err)
-        else
-        res.send({success: true})
+        else {
+            res.status(200).json({
+            message: 'suceess',
+        }) 
+        }
+        // res.send({success: true})
     })
     
 });
