@@ -10,10 +10,8 @@ const router  = express.Router();
 
 router.post('/', (req, res, next)=> {
 
-     var stripetoken = req.params['stripetoken']
-     var amountpayable = req.params['amount']
-    //  var stripetoken = req.body.stripetoken
-    //  var amountpayable = req.body.amount
+     var stripetoken = req.body.stripetoken
+     var amountpayable = req.body.amount
 
     // res.send(201, req.body);
 
