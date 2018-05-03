@@ -9,8 +9,8 @@ router.get('/', (req, res, next)=> {
 });
 
 router.post('/', (req, res, next)=> {
-    const token = req.params.token
-
+    
+    let token = req.params.token
     res.status(200).json({
         message: 'hello',
         token:token || ''
